@@ -17,12 +17,13 @@ class ViewController: NSViewController {
 
     var wiiRemote: WiiRemote?
 
+    @IBOutlet weak var statusLabel: NSTextFieldCell!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.discovery = WiiRemoteDiscovery(delegate: self)
         self.discovery.start()
-
+        self.statusLabel.title = "Discovering for Wii Remote"
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +32,7 @@ class ViewController: NSViewController {
         guard let wiiRemote = self.wiiRemote else {
             fatalError("wiiRemote is nil")
         }
+        self.statusLabel.title = "Wii Remote is Discovered"
         wiiRemote.setDelegate(self)
     }
 
@@ -50,7 +52,7 @@ extension ViewController {
     }
 
     override func willStartWiimoteConnections() {
-        NotificationManager.show(text: "Connected Wii Remote")
+        self.statusLabel.title = "Wii remote connection is establisged."
     }
 
     override func wiiRemoteDiscovered(_ wiimote: WiiRemote!) {
@@ -65,8 +67,9 @@ extension ViewController {
     }
 
     override func wiiRemoteDisconnected(_ device: IOBluetoothDevice!) {
-        print("wiiRemoteDisconnected")
+        self.statusLabel.title = "Wii Remote is disconnected"
         self.discovery.start()
+        self.statusLabel.title = "Discovering for Wii Remote"
     }
 
     override func buttonChanged(_ type: WiiButtonType, isPressed: Bool) {

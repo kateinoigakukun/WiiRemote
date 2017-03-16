@@ -10,10 +10,10 @@
         <scene sceneID="2W6-oJ-aS5">
             <objects>
                 <windowController id="HCA-ID-Rgt" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="88s-9n-qme">
+                    <window key="window" title="WiiRemote" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="88s-9n-qme">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="contentRect" x="1400" y="800" width="300" height="100"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -29,9 +29,29 @@
             <objects>
                 <viewController id="iDQ-Qc-ggp" customClass="ViewController" customModule="WiiRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="BDV-y8-0do">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bNV-Ov-h9j">
+                                <rect key="frame" x="18" y="63" width="37" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="pDU-q5-f0y"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="F1d-yo-ipX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bNV-Ov-h9j" firstAttribute="top" secondItem="BDV-y8-0do" secondAttribute="top" constant="20" id="CQo-cy-XVJ"/>
+                            <constraint firstItem="bNV-Ov-h9j" firstAttribute="leading" secondItem="BDV-y8-0do" secondAttribute="leading" constant="20" id="vvt-cN-kg1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="F1d-yo-ipX" id="tU8-Op-XJO"/>
+                    </connections>
                 </viewController>
                 <customObject id="m5N-Ty-VvN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
